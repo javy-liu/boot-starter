@@ -18,6 +18,19 @@
     </properties>
 
 
+    <!-- 发布仓库 -->
+    <distributionManagement>
+        <repository>
+            <id>releases</id>
+            <name>local and develop environment private nexus snapshots</name>
+            <url>http://nexus.c.waimai.test.sankuai.info/content/repositories/releases</url>
+        </repository>
+        <snapshotRepository>
+            <id>snapshots</id>
+            <name>local private nexus snapshots</name>
+            <url>http://nexus.c.waimai.test.sankuai.info/content/repositories/snapshots</url>
+        </snapshotRepository>
+    </distributionManagement>
 
     <dependencyManagement>
         <dependencies>
