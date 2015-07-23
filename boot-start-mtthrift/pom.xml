@@ -8,9 +8,9 @@
         <artifactId>boot-starter</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
-    <artifactId>boot-starter-thrift</artifactId>
-    <name>Boot Starter Thrift</name>
-    <description>Boot Starter Thrift</description>
+    <artifactId>boot-starter-mtthrift</artifactId>
+    <name>Boot Starter MTThrift</name>
+    <description>Boot Starter MTThrift</description>
 
 
     <properties>
@@ -20,6 +20,11 @@
 
 
     <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-configuration-processor</artifactId>

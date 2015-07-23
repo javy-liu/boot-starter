@@ -3,19 +3,22 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.sankuai.meituan.waimai</groupId>
+	<parent>
+		<groupId>com.sankuai.meituan.waimai</groupId>
+		<artifactId>boot-starter-parent</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+		<relativePath>boot-starter-parent</relativePath>
+	</parent>
 	<artifactId>boot-starter</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<name>Boot Starter</name>
 	<description>Boot Start</description>
 
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<java.version>1.7</java.version>
-	</properties>
 
-	
+	<modules>
+		<module>boot-starter-thrift</module>
+		<module>boot-start-mtthrift</module>
+	</modules>
 
 </project>
