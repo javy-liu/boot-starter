@@ -13,8 +13,8 @@
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
-	<name>Boot Starter</name>
-	<description>Boot Start</description>
+	<name>Boot Starters</name>
+	<description>Boot Starts</description>
 
 
 	<modules>
