@@ -10,30 +10,35 @@
         <relativePath>../boot-starter-parent</relativePath>
     </parent>
 
-    <artifactId>boot-starter-mtthrift</artifactId>
+    <artifactId>boot-starter</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
-    <name>Boot Starter MTThrift</name>
-    <description>Boot Starter MTThrift</description>
-
+    <name>Boot Starter</name>
+    <description>Boot Starter</description>
 
     <dependencies>
-
         <dependency>
-            <groupId>com.sankuai.meituan.waimai</groupId>
-            <artifactId>boot-starter</artifactId>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>com.meituan.service.mobile</groupId>
-            <artifactId>mtthrift</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>org.apache.thrift</groupId>
-            <artifactId>libthrift</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-log4j2</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>com.lmax</groupId>
+            <artifactId>disruptor</artifactId>
+            <version>3.3.2</version>
+        </dependency>
+
     </dependencies>
 
 </project>

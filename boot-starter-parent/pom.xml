@@ -3,7 +3,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.sankuai.meituan.waimai</groupId>
+    <parent>
+        <groupId>com.sankuai.meituan.waimai</groupId>
+        <artifactId>boot-dependencies</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+        <relativePath>../boot-dependencies</relativePath>
+    </parent>
+
     <artifactId>boot-starter-parent</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
@@ -12,77 +18,72 @@
     <description>Boot Starter Parent</description>
 
     <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.7</java.version>
-        <thrift.version>0.8.0</thrift.version>
+        <resource.delimiter>@</resource.delimiter> <!-- delimiter that doesn't clash with Spring ${} placeholders -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
     </properties>
 
+    <profiles>
+        <!-- 测试环境打包 -->
+        <profile>
+            <id>develop</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
 
-    <!-- 发布仓库 -->
-    <distributionManagement>
-        <repository>
-            <id>releases</id>
-            <name>local and develop environment private nexus snapshots</name>
-            <url>http://nexus.c.waimai.test.sankuai.info/content/repositories/releases</url>
-        </repository>
-        <snapshotRepository>
-            <id>snapshots</id>
-            <name>local private nexus snapshots</name>
-            <url>http://nexus.c.waimai.test.sankuai.info/content/repositories/snapshots</url>
-        </snapshotRepository>
-    </distributionManagement>
+            <distributionManagement>
+                <repository>
+                    <id>releases</id>
+                    <name>local and develop environment private nexus snapshots</name>
+                    <url>http://nexus.c.waimai.test.sankuai.info/content/repositories/releases</url>
+                </repository>
+                <snapshotRepository>
+                    <id>snapshots</id>
+                    <name>local private nexus snapshots</name>
+                    <url>http://nexus.c.waimai.test.sankuai.info/content/repositories/snapshots</url>
+                </snapshotRepository>
+            </distributionManagement>
+        </profile>
 
-    <dependencyManagement>
-        <dependencies>
-            <!-- 基于依赖 -->
-            <dependency>
-                <groupId>org.projectlombok</groupId>
-                <artifactId>lombok</artifactId>
-                <version>1.12.6</version>
-            </dependency>
+        <!-- 生产环境打包 -->
+        <profile>
+            <id>prod</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
 
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-configuration-processor</artifactId>
-                <version>1.2.5.RELEASE</version>
-            </dependency>
+            <distributionManagement>
+                <repository>
+                    <id>meituan-nexus-releases</id>
+                    <name>Meituan Nexus Releases Repository</name>
+                    <url>http://nexus.sankuai.com:8081/nexus/content/repositories/releases/</url>
+                </repository>
+                <snapshotRepository>
+                    <id>meituan-nexus-snapshots</id>
+                    <name>Meituan Nexus Snapshot Repository</name>
+                    <url>http://nexus.sankuai.com:8081/nexus/content/repositories/snapshots/</url>
+                </snapshotRepository>
+            </distributionManagement>
+        </profile>
 
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-autoconfigure</artifactId>
-                <version>1.2.5.RELEASE</version>
-            </dependency>
+        <!-- qa环境打包 -->
+        <profile>
+            <id>test</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+        </profile>
 
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-test</artifactId>
-                <version>1.2.5.RELEASE</version>
-            </dependency>
+        <!-- 本地环境打包 -->
+        <profile>
+            <id>local</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
 
-
-            <!-- 美团thrift依赖 -->
-            <dependency>
-                <groupId>org.apache.thrift</groupId>
-                <artifactId>libthrift</artifactId>
-                <version>${thrift.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.meituan.service.mobile</groupId>
-                <artifactId>mtthrift</artifactId>
-                <version>1.5.7-SNAPSHOT</version>
-                <!-- 升级为1.5.6-SNAPSHOT -->
-                <exclusions>
-                    <exclusion>
-                        <groupId>org.jboss.netty</groupId>
-                        <artifactId>netty</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>org.slf4j</groupId>
-                        <artifactId>slf4j-log4j12</artifactId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
+    </profiles>
 </project>
