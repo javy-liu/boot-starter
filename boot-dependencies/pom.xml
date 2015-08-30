@@ -22,6 +22,10 @@
         <httpclient.version>4.3.6</httpclient.version>
         <httpcore.version>4.3.3</httpcore.version>
 
+        <!-- log -->
+        <slf4j.version>1.7.12</slf4j.version>
+        <log4j2.version>2.1</log4j2.version>
+
         <!-- Thrift -->
         <thrift.version>0.8.0</thrift.version>
     </properties>
@@ -58,12 +62,12 @@
             <dependency>
                 <groupId>com.sankuai.meituan.waimai</groupId>
                 <artifactId>boot-starter</artifactId>
-                <version>0.0.1-SNAPSHOT</version>
+                <version>${parent.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.sankuai.meituan.waimai</groupId>
                 <artifactId>boot-starter-mtthrift</artifactId>
-                <version>0.0.1-SNAPSHOT</version>
+                <version>${parent.version}</version>
             </dependency>
 
             <!-- spring boot-->
@@ -376,6 +380,13 @@
                 <groupId>org.apache.httpcomponents</groupId>
                 <artifactId>httpcore</artifactId>
                 <version>${httpcore.version}</version>
+            </dependency>
+
+            <!-- log -->
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>${slf4j.version}</version>
             </dependency>
 
         </dependencies>

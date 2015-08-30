@@ -5,14 +5,12 @@
 
     <parent>
         <groupId>com.sankuai.meituan.waimai</groupId>
-        <artifactId>boot-starter-parent</artifactId>
+        <artifactId>boot-starters</artifactId>
         <version>0.0.1-SNAPSHOT</version>
-        <relativePath>../boot-starter-parent</relativePath>
     </parent>
 
     <artifactId>boot-starter</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <packaging>pom</packaging>
+    <packaging>jar</packaging>
 
     <name>Boot Starter</name>
     <description>Boot Starter</description>
