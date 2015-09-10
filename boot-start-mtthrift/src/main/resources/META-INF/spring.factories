@@ -1,0 +1,2 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.sankuai.meituan.waimai.boot.starter.mtthrift.autoconfigure.MTThriftAutoConfiguration

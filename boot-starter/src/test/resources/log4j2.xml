@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN" packages="com.sankuai.meituan.waimai.boot.starter.logging.log4j2">
+    <Properties>
+        <Property name="PID">????</Property>
+        <Property name="LOG_PATTERN">%d{yyyy-MM-dd HH:mm:ss.SSS} boot%X{context} %style{%5p}{green} %style{${sys:PID}}{magenta} --- [%t] %style{%c{1}}{cyan} : %style{%m%n}{Bright white}</Property>
+    </Properties>
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT" follow="true">
+            <PatternLayout pattern="${LOG_PATTERN}" />
+        </Console>
+
+        <MaxRollingRandomAccessFile name="RollingFile" fileName="logs/app.log"
+                     filePattern="logs/app-%d{yyyy-MM-dd}-%i.log.gz">
+            <PatternLayout pattern="${LOG_PATTERN}" />
+            <Policies>
+                <TimeBasedTriggeringPolicy/>
+            </Policies>
+            <DefaultRolloverStrategy max="2"/>
+            <!--<MaxDayFileRolloverStrategy max="3"/>-->
+        </MaxRollingRandomAccessFile>
+
+    </Appenders>
+    <Loggers>
+
+        <AsyncRoot level="INFO">
+            <AppenderRef ref="RollingFile" />
+        </AsyncRoot>
+    </Loggers>
+</Configuration>
