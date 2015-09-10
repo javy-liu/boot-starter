@@ -15,7 +15,7 @@
 
         <!-- spring boot-->
         <spring-boot.version>1.2.5.RELEASE</spring-boot.version>
-        <spring.version>4.2.1.RELEASE</spring.version>
+        <spring.version>4.1.7.RELEASE</spring.version>
 
         <!-- Third Party -->
         <lombok.version>1.16.6</lombok.version>
